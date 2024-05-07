@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="header">
+    <h1>Weather App</h1>
+  </div>
+  <div class="search">
+    <input [(ngModel)]="city" type="text" placeholder="Enter city name" />
+    <button type="search" (click)="getWeather()">
+        <img src="assets/search.svg" alt="" style="transform: scale(1.2,1.2);">
+    </button>
+  </div>
+
+  <div class="weatherdetails" *ngIf="weatherData">
+    <div class="weatherData">
+      <div class="des">
+        <img [src]="iconUrl" alt="icon" style="transform: scale(1.5, 1.5)" />
+
+        <h5 style="text-transform: capitalize">
+          {{ weatherData.weather[0].description }}
+        </h5>
+      </div>
+    </div>
+
+    <div class="weatherData" style="font-size: 32px; font-weight: bold;" >
+      {{ weatherData.temp }} &deg;C
+    </div>
+
+    <div class="weatherData" style="font-size: 0.75rem">
+      {{ weatherData.temp_min }} &deg;C / {{ weatherData.temp_max }} &deg;C
+    </div>
+    <!-- <div class="weatherData">
+      Feels Like: {{ weatherData.main.feels_like }} &deg;
+    </div> -->
+
+    <div
+      class="weatherData"
+      style="
+        font-size: 25px;
+        margin-top: 10px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      "
+    >
+      {{ weatherData.name }}
+    </div>
+
+    <div class="weatherData">Humidity: {{ weatherData.main.humidity }}%</div>
+    <div class="weatherData">Wind Speed: {{ weatherData.wind.speed }} Km/h</div>
+  </div>
+
+  <footer>Made with ❤️ by Rubi Adhikari</footer>
+</div>
